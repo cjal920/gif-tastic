@@ -15,44 +15,46 @@
 <body>
     
   <div class="wrapper">
-    
+    <!-- Header  -->
+  
+    <header>
+        <div>The Giffather</div>
+      </header>
 
-              <header>
-                <div>The Giffather</div>
-              </header>
-         
 
-        <div class="container" id="gif-buttons">
-            <div class="row">   
-                
-              
-            </div>
-        </div>        
+    <!-- Buttons  -->
+    <div class="container" id="gif-buttons">
+        <div class="row">   
+            <div id="gif-btns"></div>
+            
+          
+        </div>
+    </div> 
 
-        
-    
-  <div class="container">
+
+     <!-- Main Container  -->
+<div class="container">
     <div class="row">
         <div class="col-md-9">
-          </div>
-      <div class="col-md-3">
-    <form id="gif-father">
-        <label for="input" id="input">Leave the gun, add a canolli</label>
-        <input type="text" id="text-input" value="">
-        <input type="submit" id="submit" class="gif-btn" value="Add">
-    </form>
-      </div>
+            <!-- Gifs  -->
+            <div id="gifsView"></div>
+        </div>
     </div>
-  </div>
-
-
-
-
-
-
-
-
-
+</div>
+         <!-- Action Submission Form  -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-9"></div>
+            <div class="col-md-3">
+                    <form id="gif-form" role="form">
+                    <label for="text-input">Leave the gun, add a canolli</label>
+                    <input type="text" id="text-input" value="">
+                    <input type="submit" id="submit" class="gif-fathers" value="Add">
+                    <input type="submit" id="remove" class="gif-fathers" value="Subtract">
+                </form>    
+            </div>
+        </div>
+    </div>
 </div>
 
     <div class="row">

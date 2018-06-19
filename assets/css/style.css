@@ -24,7 +24,7 @@ header  {
     color:  #fdfcf1;
 }
 
-#text  {
+#text-input  {
     width: 250px;
     margin-bottom: 10px;
     background: #070707;
@@ -32,7 +32,7 @@ header  {
     border: 1px solid #38320d;
 }
 
-.gif-btn {
+.gif-fathers {
     background: #070707;
     border: 1px solid #38320d;
     border-radius: 5px;
@@ -41,13 +41,9 @@ header  {
     color: #fdfcf1;
 }
 
-.gif-btn:hover {
+.gif-fathers:hover {
     background: #fdfcf1;
     color: #070707;
-}
-
-#gif-buttons    {
-    margin-left: 40px;
 }
 
 footer  {
