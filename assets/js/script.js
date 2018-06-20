@@ -8,7 +8,7 @@ $( document ).ready(function() {
         $("#gif-btns").empty(); // erasing anything in this div id so that it doesnt duplicate the results
         for (var i = 0; i < gifFathers.length; i++){
             var gifButton = $("<button>");
-            gifButton.addClass("gif-fathers");
+            gifButton.addClass("gif-father");
             //gifButton.addClass("btn btn-primary")
             gifButton.attr("data-name", gifFathers[i]);
             gifButton.text(gifFathers[i]);
@@ -39,12 +39,10 @@ $( document ).ready(function() {
         });
     }
 
-
-    ///////////////////////////////////////////////////////
     // Function that displays all of the gifs
     function displayGifs(){
-        var action = $(this).attr("data-name");
-        var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + action + "&api_key=dc6zaTOxFJmzC&limit=10";
+        var gifFather = $(this).attr("data-name");
+        var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + gifFather + "&api_key=dc6zaTOxFJmzC&limit=10";
         console.log(queryURL); // displays the constructed url
         $.ajax({
             url: queryURL,
@@ -57,7 +55,7 @@ $( document ).ready(function() {
             if (results == ""){
               alert("There isn't a gif for this selected button");
             }
-            for (var i=0; i<results.length; i++){
+            for (var i = 0; i < results.length; i++ ){
     
                 var gifDiv = $("<div>"); //div for the gifs to go inside
                 gifDiv.addClass("gifDiv");
@@ -82,8 +80,8 @@ $( document ).ready(function() {
     displayGifButtons(); // displays list of actions already created
     addNewButton();
     removeLastButton();
-    // Document Event Listeners
-    $(document).on("click", ".action", displayGifs);
+    // Document Event Listeners 
+    $(document).on("click", ".gif-father", displayGifs);
     $(document).on("click", ".image", function(){
         var state = $(this).attr('data-state');
         if ( state == 'still'){

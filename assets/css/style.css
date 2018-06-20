@@ -32,6 +32,7 @@ header  {
     border: 1px solid #38320d;
 }
 
+.gif-father,
 .gif-fathers {
     background: #070707;
     border: 1px solid #38320d;
@@ -41,6 +42,7 @@ header  {
     color: #fdfcf1;
 }
 
+.gif-father:hover,
 .gif-fathers:hover {
     background: #fdfcf1;
     color: #070707;
