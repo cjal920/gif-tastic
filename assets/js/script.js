@@ -1,36 +1,30 @@
 $( document ).ready(function() {
-    // An array of actions, new actions will be pushed into this array;
-    var gifFathers = ["Don Vito","Michael","Kay Adams","Sonny","Fredo","Connie","Tom Hagan","Clemenza","Tessio","Virgil Solozzo",
-              "Jack Woltz","Apollonia","Al Neri","Willy Cicci","Frank Pentangeli","Hyman Roth"];
-// Creating Functions & Methods
-    // Function that displays all gif buttons
+    var gifFathers = ["Don Vito","Michael Corleone","Sonny Corleone","Kay Adams",
+    "Johnny Fontane","Apollonia",];
+
     function displayGifButtons(){
-        $("#gif-btns").empty(); // erasing anything in this div id so that it doesnt duplicate the results
+        $("#gif-btns").empty(); 
         for (var i = 0; i < gifFathers.length; i++){
             var gifButton = $("<button>");
             gifButton.addClass("gif-father");
-            //gifButton.addClass("btn btn-primary")
             gifButton.attr("data-name", gifFathers[i]);
             gifButton.text(gifFathers[i]);
             $("#gif-btns").append(gifButton);
         }
     }
-    // Function to add a new action button
+   
     function addNewButton(){
         $("#submit").on("click", function(){
         var gifFather = $("#text-input").val().trim();
         if (gifFather == ""){
-          return false; // added so user cannot add a blank button
+          return false;
         }
         gifFathers.push(gifFather);
-    
         displayGifButtons();
         return false;
         });
     }
-    // Function to remove last action button
-        // Doesnt work properly yet removes all of the added buttons
-        // rather than just the last
+
     function removeLastButton(){
         $("remove").on("click", function(){
         gifFathers.pop(gifFather);
@@ -39,25 +33,24 @@ $( document ).ready(function() {
         });
     }
 
-    // Function that displays all of the gifs
     function displayGifs(){
         var gifFather = $(this).attr("data-name");
         var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + gifFather + "&api_key=dc6zaTOxFJmzC&limit=10";
-        console.log(queryURL); // displays the constructed url
+        console.log(queryURL);
         $.ajax({
             url: queryURL,
             method: 'GET'
         })
         .done(function(response) {
-            console.log(response); // console test to make sure something returns
-            $("#gifsView").empty(); // erasing anything in this div id so that it doesnt keep any from the previous click
-            var results = response.data; //shows results of gifs
+            console.log(response); 
+            $("#gif-display").empty(); 
+            var results = response.data; 
             if (results == ""){
               alert("There isn't a gif for this selected button");
             }
             for (var i = 0; i < results.length; i++ ){
     
-                var gifDiv = $("<div>"); //div for the gifs to go inside
+                var gifDiv = $("<div>"); 
                 gifDiv.addClass("gifDiv");
                 // pulling rating of gif
                 var gifRating = $("<p>").text("Rating: " + results[i].rating);
@@ -72,7 +65,7 @@ $( document ).ready(function() {
                 gifDiv.append(gifImage);
                 // pulling still image of gif
                 // adding div of gifs to gifsView div
-                $("#gifsView").prepend(gifDiv);
+                $("#gif-display").prepend(gifDiv);
             }
         });
     }

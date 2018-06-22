@@ -1,6 +1,5 @@
 body    {
-    /*background-image: url(/assets/images/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg);*/
-    background: #000000;
+    background: #070707;
     color:  #fdfcf1;
     font-family: 'Cinzel', serif;
 }
@@ -9,14 +8,14 @@ body    {
     min-height: calc(100vh - 70px);
 }
 
-header  {
-    text-align: center;
-    font-size: 70px;
-    margin: 20px;  
-    width: 100%;
-    background: #070707;
-    border-top: 1px solid #38320d;
-    border-bottom: 1px solid #38320d;
+#bg     {
+    height: 500px;
+    width: 500px;
+    margin-top: 20px;
+}
+
+#gif-form   {
+    margin-top: 20px;
 }
 
 #input  {
@@ -30,6 +29,10 @@ header  {
     background: #070707;
     color:  #fdfcf1;
     border: 1px solid #38320d;
+}
+
+#gif-btns   {
+    padding: 20px;
 }
 
 .gif-father,
@@ -48,12 +51,32 @@ header  {
     color: #070707;
 }
 
+header  {
+    text-align: center;
+    font-size: 70px;
+    margin: 20px;  
+    height: 30px;
+    width: 100%;
+    border-bottom: 1px solid #38320d;
+}
+
 footer  {
     text-align: center;
     font-size: 70px;
     margin: 20px;  
     height: 50px;
     width: 100%;
-    background: #070707;
     border-top: 1px solid #38320d;
+}
+
+#submit {
+    font-size: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#gifs-giphies   {
+    margin-top: 100px;
+    font-style: italic;
+    color: #6b6b6b;
 }

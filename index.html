@@ -13,55 +13,44 @@
   
 </head>
 <body>
-    
-  <div class="wrapper">
-    <!-- Header  -->
-  
-    <header>
-        <div>The Giffather</div>
-      </header>
-
-
-    <!-- Buttons  -->
-    <div class="container" id="gif-buttons">
-        <div class="row">   
-            <div id="gif-btns"></div>
-            
-          
-        </div>
-    </div> 
-
-
-     <!-- Main Container  -->
-
-         
-<div class="container">
-    <div class="row">
-        <div class="col-md-9">
-            <!-- Gifs  -->
-            <div id="gifsView"></div>
-        </div>
-        <div class="col-md-3">
-            <!-- Action Submission Form-->
+    <div class="wrapper">
+        <div class="row">
+            <div class="col-md-12">
+                <header></header>
+            </div>
+        </div>        
+        <div class="container">
+            <div class="row">   
+                <div id="gif-btns"></div>
+            </div>
+        </div> 
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div id="gif-display"></div>
+                </div>
+                <div class="col-md-6">
+                    <img id="bg" src="assets/images/Gif-Father.png">
+                </div>
+                <div class="col-md-3">
                     <form id="gif-form" role="form">
-                    <label for="text-input">Leave the gun, add a canolli</label>
-                    <input type="text" id="text-input" value="">
-                    <input type="submit" id="submit" class="gif-fathers" value="Add">
-                    <input type="submit" id="remove" class="gif-fathers" value="Subtract">
-                </form>    
+                        <label for="text-input">Leave the gun, add a canolli</label>
+                        <input type="text" id="text-input" value="">
+                        <input type="submit" id="submit" class="gif-fathers" value="+">
+                        <input type="submit" id="submit" class="gif-fathers" value="-">
+                        <div id="gifs-giphies">"Keep your GIFS close and your GIPHIES closer."</div>
+                    </form>    
+                </div>
             </div>
         </div>
     </div>
-</div>
-
     <div class="row">
         <div class="col-md-12">
-          <footer></footer>
-          </div>
+            <footer></footer>
         </div>
+    </div>
 
-<script type="text/javascript" src="assets/js/script.js"></script>
+    <script type="text/javascript" src="assets/js/script.js"></script>
             
-
 </body>
 </html>
