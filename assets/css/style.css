@@ -9,8 +9,8 @@ body    {
 }
 
 #bg     {
-    height: 500px;
-    width: 500px;
+    height: 300px;
+    width: 300px;
     margin-top: 20px;
 }
 
@@ -76,7 +76,7 @@ footer  {
 }
 
 #gifs-giphies   {
-    margin-top: 100px;
+    margin-top: 60px;
     font-style: italic;
     color: #6b6b6b;
 }

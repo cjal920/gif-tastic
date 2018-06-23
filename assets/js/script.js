@@ -1,6 +1,13 @@
 $( document ).ready(function() {
-    var gifFathers = ["Don Vito","Michael Corleone","Sonny Corleone","Kay Adams",
-    "Johnny Fontane","Apollonia",];
+    var gifFathers = ["Don Vito","Michael Corleone","Sonny Corleone","Kay Adams","Johnny Fontane","Apollonia"];
+
+    var gifAudio = ["assets/audio/Don Vito","assets/audio/Michael Corleone","assets/audio/Sonny Corleone","assets/audio/Kay Adams","assets/audio/Johnny Fontane","assets/audio/Apollonia"];
+
+    ///////////////
+    $(gifFathers[0]).on("click", function(){
+        audio.gifAudio[0];
+    });
+    ///////////////
 
     function displayGifButtons(){
         $("#gif-btns").empty(); 
@@ -36,44 +43,32 @@ $( document ).ready(function() {
     function displayGifs(){
         var gifFather = $(this).attr("data-name");
         var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + gifFather + "&api_key=dc6zaTOxFJmzC&limit=10";
-        console.log(queryURL);
         $.ajax({
             url: queryURL,
             method: 'GET'
         })
         .done(function(response) {
-            console.log(response); 
             $("#gif-display").empty(); 
             var results = response.data; 
-            if (results == ""){
-              alert("There isn't a gif for this selected button");
-            }
             for (var i = 0; i < results.length; i++ ){
-    
                 var gifDiv = $("<div>"); 
-                gifDiv.addClass("gifDiv");
-                // pulling rating of gif
-                var gifRating = $("<p>").text("Rating: " + results[i].rating);
+                gifDiv.addClass("gif-div");
+                var gifRating = $("<p>").text("Rated " + results[i].rating);
                 gifDiv.append(gifRating);
-                // pulling gif
                 var gifImage = $("<img>");
-                gifImage.attr("src", results[i].images.fixed_height_small_still.url); // still image stored into src of image
-                gifImage.attr("data-still",results[i].images.fixed_height_small_still.url); // still image
-                gifImage.attr("data-animate",results[i].images.fixed_height_small.url); // animated image
-                gifImage.attr("data-state", "still"); // set the image state
+                gifImage.attr("src", results[i].images.fixed_height_small_still.url); 
+                gifImage.attr("data-still", results[i].images.fixed_height_small_still.url); 
+                gifImage.attr("data-animate", results[i].images.fixed_height_small.url); 
+                gifImage.attr("data-state", "still"); 
                 gifImage.addClass("image");
                 gifDiv.append(gifImage);
-                // pulling still image of gif
-                // adding div of gifs to gifsView div
                 $("#gif-display").prepend(gifDiv);
             }
         });
     }
-    // Calling Functions & Methods
-    displayGifButtons(); // displays list of actions already created
+    displayGifButtons();
     addNewButton();
     removeLastButton();
-    // Document Event Listeners 
     $(document).on("click", ".gif-father", displayGifs);
     $(document).on("click", ".image", function(){
         var state = $(this).attr('data-state');
@@ -86,51 +81,3 @@ $( document ).ready(function() {
         }
     });
     });
-
-
-
-//$("#gif-btn").html(gifFather[2]);
-
-//function createButtons()    {
-  //  for (var i = 0; i < gifFather.length; i++);
-    //$("#gif-btn").append(gifFather);
-//}
-//createButtons();
-
-
-//};
-
-
- 
-
-
-//$("#submit").on("click", function() {
-
-    //$("#submit").on("click", function() {
-  //  });
-    
-    
-
-
-
- //   $.ajax();    {
-    
-    
-
-
-
-    //$.ajax();    {
- //   };
-
-//$(document).ready(function() {   
-
-
-   // wGyznbruZGn00x3w8BFJxh7kQFZXYx7h
-
-//var gifFather = "the+godfather";
- 
-
-//var xhr = $.get("http://api.giphy.com/v1/gifs/search?q=the+godfather&api_key=wGyznbruZGn00x3w8BFJxh7kQFZXYx7h&limit=100");
-//xhr.done(function(data) { 
-//    console.log(data.data[62].images.original.url); 
-//});
