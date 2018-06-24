@@ -1,17 +1,9 @@
 $( document ).ready(function() {
     var gifFathers = ["Don Vito","Michael Corleone","Sonny Corleone","Kay Adams","Johnny Fontane","Apollonia"];
 
-    var gifAudio = ["assets/audio/Don Vito","assets/audio/Michael Corleone","assets/audio/Sonny Corleone","assets/audio/Kay Adams","assets/audio/Johnny Fontane","assets/audio/Apollonia"];
-
-    ///////////////
-    $(gifFathers[0]).on("click", function(){
-        audio.gifAudio[0];
-    });
-    ///////////////
-
-    function displayGifButtons(){
+    function displayGifButtons() {
         $("#gif-btns").empty(); 
-        for (var i = 0; i < gifFathers.length; i++){
+        for (var i = 0; i < gifFathers.length; i++) {
             var gifButton = $("<button>");
             gifButton.addClass("gif-father");
             gifButton.attr("data-name", gifFathers[i]);
@@ -20,10 +12,10 @@ $( document ).ready(function() {
         }
     }
    
-    function addNewButton(){
-        $("#submit").on("click", function(){
+    function addNewButton() {
+        $("#submit").on("click", function() {
         var gifFather = $("#text-input").val().trim();
-        if (gifFather == ""){
+        if (gifFather == "") {
           return false;
         }
         gifFathers.push(gifFather);
@@ -32,25 +24,26 @@ $( document ).ready(function() {
         });
     }
 
-    function removeLastButton(){
-        $("remove").on("click", function(){
+    function removeLastButton() {
+        $("remove").on("click", function() {
         gifFathers.pop(gifFather);
         displayGifButtons();
         return false;
         });
     }
 
-    function displayGifs(){
+    function displayGifs() {                                                            
         var gifFather = $(this).attr("data-name");
-        var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + gifFather + "&api_key=dc6zaTOxFJmzC&limit=10";
+        var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + gifFather + "&api_key=wGyznbruZGn00x3w8BFJxh7kQFZXYx7h";
         $.ajax({
             url: queryURL,
             method: 'GET'
         })
+        
         .done(function(response) {
             $("#gif-display").empty(); 
             var results = response.data; 
-            for (var i = 0; i < results.length; i++ ){
+            for (var i = 0; i < results.length; i++ ) {
                 var gifDiv = $("<div>"); 
                 gifDiv.addClass("gif-div");
                 var gifRating = $("<p>").text("Rated " + results[i].rating);
@@ -66,18 +59,19 @@ $( document ).ready(function() {
             }
         });
     }
+
     displayGifButtons();
     addNewButton();
     removeLastButton();
     $(document).on("click", ".gif-father", displayGifs);
-    $(document).on("click", ".image", function(){
+    $(document).on("click", ".image", function() {
         var state = $(this).attr('data-state');
-        if ( state == 'still'){
-            $(this).attr('src', $(this).data('animate'));
-            $(this).attr('data-state', 'animate');
-        }else{
-            $(this).attr('src', $(this).data('still'));
-            $(this).attr('data-state', 'still');
+        if ( state == "still") {
+            $(this).attr("src", $(this).data("animate"));
+            $(this).attr("data-state", "animate");
+        } else {
+            $(this).attr("src", $(this).data("still"));
+            $(this).attr("data-state", "still");
         }
     });
     });
